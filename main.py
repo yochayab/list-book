@@ -1,9 +1,14 @@
 from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
-
+#list ID Titel author
 # "מסד נתונים בזכרון
-books = []
+books = [
+    {"id": "1", "title": "FirstBook", "author" : "lidor"},
+    {"id": "2", "title": "SecBook", "author" : "Hads"},
+    {"id": "3", "title": "ThirdBook", "author" : "Yochay"},
+    {"id": "4", "title": "LastBook", "author" : "Itay"}
+]
 counter = 1
 
 @app.get("/books")
