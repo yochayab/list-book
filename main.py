@@ -1,15 +1,14 @@
 from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
-#list ID Titel author
 # "מסד נתונים בזכרון
 books = [
-    {"id": "1", "title": "FirstBook", "author" : "lidor"},
-    {"id": "2", "title": "SecBook", "author" : "Hads"},
-    {"id": "3", "title": "ThirdBook", "author" : "Yochay"},
-    {"id": "4", "title": "LastBook", "author" : "Itay"}
+    {"id": 1, "title": "FirstBook", "author" : "lidor","year" : 1998},
+    {"id": 2, "title": "SecBook", "author" : "Hads","year" : 1990},
+    {"id": 3, "title": "ThirdBook", "author" : "Yochay","year" : 2000},
+    {"id": 4, "title": "LastBook", "author" : "Itay","year" : 1999}
 ]
-counter = 1
+counter = 4
 
 @app.get("/books")
 def get_books():
@@ -28,7 +27,8 @@ def add_book(book: dict):
     new_book = {
         "id" : counter,
         "title" : book.get("title"),
-        "author": book.get("author")
+        "author": book.get("author"),
+        "year" : book.get("year"),
     }
     books.append(new_book)
     counter += 1
